@@ -1,4 +1,4 @@
-#perf.py    v1.0.0    11/15/2004   3:52PM
+#perf.py    v1.0.1   11/16/2004   11:25PM
 
 
 import matplotlib.dates as mdates
@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from fmp import fmp_price
 
-def metrics(prices_df, start='2023-11-14', end='2024-11-14'):
+def metrics(prices_df, start=None, end=None):
 
     '''
     Calculate performance metrics for a given time series of prices and visualize the results.
