@@ -1,6 +1,5 @@
 #perf.py    v1.0.1   11/16/2004   11:25PM
 
-
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import numpy as np
@@ -98,7 +97,10 @@ def metrics(prices_df, start=None, end=None):
 
     # Convert start and end to timezone-aware datetime with UTC
     start = pd.to_datetime(start).tz_localize('UTC')
-    end = pd.to_datetime(end).tz_localize('UTC')
+    if end is not None:
+        end = pd.to_datetime(end).tz_localize('UTC')
+    else:
+        end = prices_df.index.max()
     
     # Check if the start and end dates are within the DataFrame's date range
     if start < prices_df.index.min() or end > prices_df.index.max():
